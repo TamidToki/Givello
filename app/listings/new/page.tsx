@@ -75,9 +75,9 @@ export default function NewListingPage() {
             💚 Embrace Minimalism
           </h3>
           <p className="text-primary-800 text-sm">
-            Remember: when you let go of things you no longer need, you're not just 
-            clearing space—you're creating freedom and reducing your environmental impact. 
-            Someone else might treasure what you're ready to release.
+            Remember: when you let go of things you no longer need, you&apos;re not just 
+            clearing space—you&apos;re creating freedom and reducing your environmental impact. 
+            Someone else might treasure what you&apos;re ready to release.
           </p>
         </div>
 
