@@ -2,6 +2,9 @@
 
 import { motion } from 'framer-motion'
 
+// Needed for plain <a> tags when the site is served under /Givello (GitHub Pages)
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -29,7 +32,7 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Turku's minimalist marketplace where{' '}
+          Turku&apos;s minimalist marketplace where{' '}
           <span className="text-blue-600 font-semibold">less becomes more</span>. 
           Buy, sell, and give new life to pre-loved items while building 
           a sustainable community that values experiences over possessions.
@@ -41,7 +44,7 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.a
-            href="/listings"
+            href={`${BASE}/listings`}
             className="bg-blue-600 text-white px-10 py-5 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg text-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -49,7 +52,7 @@ export default function Home() {
             Browse Listings
           </motion.a>
           <motion.a
-            href="/listings/new"
+            href={`${BASE}/listings/new`}
             className="bg-white text-blue-600 border-2 border-blue-600 px-10 py-5 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -147,8 +150,8 @@ export default function Home() {
             According to neuroscience research, excessive possessions can create{' '}
             <strong className="text-purple-600">chronic decision fatigue</strong> and{' '}
             <strong className="text-purple-600">increased stress levels</strong>. 
-            When you choose to sell or give away items you no longer use, you're 
-            not just decluttering your physical space—you're creating room for new 
+            When you choose to sell or give away items you no longer use, you&apos;re 
+            not just decluttering your physical space—you&apos;re creating room for new 
             experiences, meaningful connections, and genuine peace of mind.
           </motion.p>
           <motion.p 
@@ -159,7 +162,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Join thousands of Turku residents who have discovered that{' '}
-            <strong className="text-pink-600">the best things in life aren't things at all</strong>. 
+            <strong className="text-pink-600">the best things in life aren&apos;t things at all</strong>. 
             Start your journey towards intentional living today—your future self will thank you.
           </motion.p>
         </div>
@@ -193,7 +196,7 @@ export default function Home() {
             ].map((category, index) => (
               <motion.a
                 key={category.name}
-                href={`/listings?category=${category.name.toLowerCase()}`}
+                href={`${BASE}/listings?category=${category.name.toLowerCase()}`}
                 className="p-6 border-2 border-gray-200 rounded-xl hover:border-blue-600 hover:shadow-xl transition-all text-center group relative overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -244,7 +247,7 @@ export default function Home() {
             <strong>joy of letting go</strong>.
           </motion.p>
           <motion.a
-            href="/listings/new"
+            href={`${BASE}/listings/new`}
             className="inline-block bg-white text-blue-600 px-12 py-5 rounded-lg font-bold text-xl hover:bg-gray-100 transition-colors shadow-2xl"
             whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.95 }}
