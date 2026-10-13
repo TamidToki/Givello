@@ -21,7 +21,7 @@ export default function ListingsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
-  const [listings, setListings] = useState([])
+  const [listings, setListings] = useState<any[]>([])
 
   // In a real app, this would fetch from your API
   useEffect(() => {
