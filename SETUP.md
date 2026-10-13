@@ -16,11 +16,13 @@ Create a `.env` file in the root directory with the following content:
 
 ```env
 DATABASE_URL="file:./dev.db"
-JWT_SECRET="your-secret-key-change-this-in-production"
+JWT_SECRET="replace-with-a-long-random-string"
 NEXT_PUBLIC_API_URL="http://localhost:3000"
 ```
 
-**Important:** Change the `JWT_SECRET` to a random string in production!
+**Important:** `JWT_SECRET` is required. The app has no built-in fallback, and token functions throw if it is missing. Generate one with `openssl rand -base64 32`. Never commit your `.env` file.
+
+`file:./dev.db` is resolved relative to `prisma/schema.prisma`, so the SQLite file is created at `prisma/dev.db`. It is git-ignored.
 
 ### 3. Initialize Database
 
@@ -30,7 +32,7 @@ Run the following commands to set up your database:
 # Generate Prisma client
 npx prisma generate
 
-# Create the database
+# Create the local SQLite database (prisma/dev.db) from the schema
 npx prisma db push
 ```
 
